@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { User } from './user.models';
 
 @Component({
@@ -9,6 +10,11 @@ import { User } from './user.models';
 export class AppComponent {
   title = 'ngForm';
   user: User = {
-    username: 'milton'
+    username: '',
+    email: ''
   };
+
+  submit(form: NgForm) {
+    console.log(form)
+  }
 }

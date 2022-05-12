@@ -1,16 +1,21 @@
-<form novalidate class="row justify-content-md-center" #form="ngForm">
+<form novalidate class="row justify-content-md-center" #form="ngForm" (ngSubmit)="submit(form)">
   <div class="col-md-8">
     <div class="form-group row">
-      <label for="example-text-input" class="col-md-2 col-form-label" ngModel>Name:</label>
+      <label for="example-text-input" class="col-md-2 col-form-label">Name:</label>
       <div class="col-md-10">
-        <input class="form-control" type="text" id="example-text-input" name="name" [(ngModel)]="user.username" />
+        <input class="form-control" type="text" id="example-text-input" name="username" [(ngModel)]="user.username"
+          required #classTest />
       </div>
     </div>
+    <h3>{{classTest.className}}</h3>
     <div class="form-group row">
       <label for="example-email-input" class="col-md-2 col-form-label">Email:</label>
       <div class="col-md-10">
-        <input class="form-control" type="email" id="example-email-input" />
+        <input class="form-control" name="email" type="email" id="example-email-input" [(ngModel)]="user.email" />
       </div>
+    </div>
+    <div class="form-group row">
+      <input type="submit" value="submit">
     </div>
   </div>
 </form>
